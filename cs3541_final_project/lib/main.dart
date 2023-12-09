@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -58,7 +59,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
-
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple.withOpacity(.5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Amazon Book List', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AmazonBookListScreen();
+                  },
+                ));
+              },
+            ),
           ],
         ),
       );
@@ -76,5 +91,17 @@ class _AmazonSearchScreen extends State<AmazonSearchScreen> {
   Widget build(BuildContext context) {
     return new AmazonSearchPage(
       new AmazonSearchPresenter(), title: 'Amazon Search', key: Key("SEARCH"),);
+  }
+}
+
+class AmazonBookListScreen extends StatefulWidget {
+  @override _AmazonBookListScreen createState() => _AmazonBookListScreen();
+}
+
+class _AmazonBookListScreen extends State<AmazonBookListScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new AmazonBookListPage(
+      new AmazonBookListPresenter(), title: 'Amazon Book List', key: Key("BOOK LIST"),);
   }
 }

@@ -1,6 +1,4 @@
 import 'dart:ffi';
 
-class AmazonSearchPresenter {
-
-
-}
+class AmazonSearchPresenter {}
+class AmazonBookListPresenter {}
