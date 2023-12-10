@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4685d30e-564f-4e81-b585-8c0202ac98e7" name="Changes" comment="initial commit for necessary files.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_player.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_presenter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cs3541_final_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cs3541_final_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_component.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="4685d30e-564f-4e81-b585-8c0202ac98e7" name="Changes" comment="added dependencies for sound player and also created the functionality for this page." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +61,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701981799789</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added dependencies for sound player and also created the functionality for this page.">
+      <created>1701991445986</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701991445986</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,6 +96,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Misc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Misc" />
+    <MESSAGE value="added dependencies for sound player and also created the functionality for this page." />
+    <option name="LAST_COMMIT_MESSAGE" value="added dependencies for sound player and also created the functionality for this page." />
   </component>
 </project>
