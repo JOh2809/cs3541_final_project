@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Implemented opening CSV file, assigning data within a list and displaying list through a ListView.">
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="misc">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/presenter/amazon_presenter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/presenter/amazon_presenter.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/booklist/presenter/booklist_presenter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/savedlist/presenter/savedlist_presenter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/booklist/views/booklist_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/savedlist/views/savedlist_component.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "C:/Users/ortiz/AndroidStudioProjects/cs3541_final_project1",
+    "last_opened_file_path": "C:/Users/brfaw/OneDrive/Desktop/Software Eng/SweetDreamsProject",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>

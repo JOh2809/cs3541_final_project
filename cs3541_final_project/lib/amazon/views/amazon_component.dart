@@ -179,7 +179,7 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Amazon Books Search Engine'),
+        title: Text('Amazon Books List'),
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -188,21 +188,30 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
         ),
       ),
       body: ListView.builder(
-              itemCount: _amazonBooksData.length,
-              itemBuilder: (_, index) {
-                return Card(
-                  margin: const EdgeInsets.all(6),
-                  color: Colors.white,
-                  child: ListTile(
-                    leading: Text(_amazonBooksData[index][0].toString()),
-                    trailing: Text(_amazonBooksData[index][2].toString()),
-                    title: Text(_amazonBooksData[index][1]),
-                    subtitle: Text(_amazonBooksData[index][4].toString()),
+        itemCount: _amazonBooksData.length,
+        itemBuilder: (_, index) {
+          return Card(
+            margin: const EdgeInsets.all(6),
+            color: Colors.white,
+            child: ListTile(
+              leading: Column(
+                  children: <Widget> [
+                    Text(_amazonBooksData[index][0].toString()),
+                    InkWell(
+                        child: Text('Save Book'),
+                        onTap: () {}
+                    ),
+                  ]
+              ),
+              trailing: Text(_amazonBooksData[index][2].toString()),
+              title: Text(_amazonBooksData[index][1]),
+              subtitle: Text(_amazonBooksData[index][4].toString()),
                     //May add isbn10 (index 3) here or within future card hero.
-                    isThreeLine: true,
-                  ),
-                );
-              },
-            ));
+              isThreeLine: true,
+            ),
+          );
+          },
+      )
+    );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
+import '../savedlist/presenter/savedlist_presenter.dart';
+import '../savedlist/views/savedlist_component.dart';
 
 void main() {
   runApp(const MyApp());
@@ -74,6 +76,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple.withOpacity(.5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Saved Books', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return SavedListScreen();
+                  },
+                ));
+              },
+            ),
           ],
         ),
       );
@@ -103,5 +120,18 @@ class _AmazonBookListScreen extends State<AmazonBookListScreen> {
   Widget build(BuildContext context) {
     return new AmazonBookListPage(
       new AmazonBookListPresenter(), title: 'Amazon Book List', key: Key("BOOK LIST"),);
+  }
+}
+
+class SavedListScreen extends StatefulWidget {
+ @override _SavedListScreen createState() => _SavedListScreen();
+}
+
+class _SavedListScreen extends State<SavedListScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new SavedListPage(
+      new SavedListPresenter(), title: 'Saved Books', key:Key("SAVED BOOKS"),
+    );
   }
 }
