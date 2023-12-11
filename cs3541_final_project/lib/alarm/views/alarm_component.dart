@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../presenter/alarm_presenter.dart';
 import 'dart:async';
 import 'dart:core';
@@ -20,7 +21,7 @@ class _AlarmPageState extends State<AlarmPage> {
   TimeOfDay selectedTime = TimeOfDay.now();
   //final player = AudioCache(fixedPlayer: AudioPlayer());
 
-  final player = AudioCache();
+  final player = AudioPlayer();
   int checkButton = 0;
 
   @override
@@ -113,8 +114,8 @@ class _AlarmPageState extends State<AlarmPage> {
       checkButton = 0;
     }
 
-    const tenSec = Duration(seconds: 10);
-    Timer.periodic(tenSec, (Timer t) => checkTimer(selectedTime));
+    const fiveSec = Duration(seconds: 5);
+    Timer.periodic(fiveSec, (Timer t) => checkTimer(selectedTime));
   }
 
   checkTimer(TimeOfDay selectedTime) {
@@ -130,7 +131,7 @@ class _AlarmPageState extends State<AlarmPage> {
           alarmId,
           //fireAlarm(player));
           fireAlarm(player));
-      print('SuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccessSuccess');
+      HapticFeedback.vibrate();
       checkButton = 1;
     }
   }
@@ -138,8 +139,8 @@ class _AlarmPageState extends State<AlarmPage> {
 
 fireAlarm(player) {
 
-
-  player.play('.../assets/AlarmNoise.mp3');
+  HapticFeedback.vibrate();
+  player.play(AssetSource('AlarmNoise.mp3'));
 }
 
 extension TimeOfDayExtension on TimeOfDay {
