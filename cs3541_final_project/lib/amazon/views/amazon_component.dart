@@ -4,6 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../presenter/amazon_presenter.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 /*
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -103,48 +104,50 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            SearchAnchor(
-              builder: (BuildContext context, SearchController controller) {
-                return SearchBar(
-                  controller: controller,
-                  padding: const MaterialStatePropertyAll<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 16.0)),
-                  onTap: () {
-                    controller.openView();
-                  },
-                  onChanged: (_) {
-                    controller.openView();
-                  },
-                  leading: const Icon(Icons.search),
-                );
-              },
-              suggestionsBuilder: (BuildContext context,
-                  SearchController controller) {
-                return List<ListTile>.generate(_amazonBooksData.length, (int index) {
-                  String title =_amazonBooksData[index][0].toString();
-                  String author =_amazonBooksData[index][2].toString();
-                  String isbn =_amazonBooksData[index][4].toString();
-                  final String isbn13 = '$title, $author, $isbn';
-                  return ListTile(
-                    title: Text(isbn13),
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              SearchAnchor(
+                builder: (BuildContext context, SearchController controller) {
+                  return SearchBar(
+                    controller: controller,
+                    padding: const MaterialStatePropertyAll<EdgeInsets>(
+                        EdgeInsets.symmetric(horizontal: 16.0)),
                     onTap: () {
-                      setState(() {
-                        controller.closeView(isbn13);
-                      });
+                      controller.openView();
                     },
+                    onChanged: (_) {
+                      controller.openView();
+                    },
+                    leading: const Icon(Icons.search),
                   );
-                });
-              },
-            ),
-          ],
-        )
+                },
+                suggestionsBuilder: (BuildContext context,
+                    SearchController controller) {
+                  return List<ListTile>.generate(_amazonBooksData.length, (int index) {
+                    String title =_amazonBooksData[index][0].toString();
+                    String author =_amazonBooksData[index][2].toString();
+                    String isbn =_amazonBooksData[index][4].toString();
+                    final String isbn13 = '$title, $author, $isbn';
+                    return ListTile(
+                      title: Text(isbn13),
+                      onTap: () {
+                        setState(() {
+                          controller.closeView(isbn13);
+                        });
+                      },
+                    );
+                  });
+                },
+              ),
+            ],
+          )
       ),
     );
   }
+
 }
+
 
 class AmazonBookListPage extends StatefulWidget {
   final AmazonBookListPresenter presenter;
@@ -178,31 +181,31 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Amazon Books Search Engine'),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(Icons.arrow_back_ios),
+        appBar: AppBar(
+          title: Text('Amazon Books Search Engine'),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios),
+          ),
         ),
-      ),
-      body: ListView.builder(
-              itemCount: _amazonBooksData.length,
-              itemBuilder: (_, index) {
-                return Card(
-                  margin: const EdgeInsets.all(6),
-                  color: Colors.white,
-                  child: ListTile(
-                    leading: Text(_amazonBooksData[index][0].toString()),
-                    trailing: Text(_amazonBooksData[index][2].toString()),
-                    title: Text(_amazonBooksData[index][1]),
-                    subtitle: Text(_amazonBooksData[index][4].toString()),
-                    //May add isbn10 (index 3) here or within future card hero.
-                    isThreeLine: true,
-                  ),
-                );
-              },
-            ));
+        body: ListView.builder(
+          itemCount: _amazonBooksData.length,
+          itemBuilder: (_, index) {
+            return Card(
+              margin: const EdgeInsets.all(6),
+              color: Colors.white,
+              child: ListTile(
+                leading: Text(_amazonBooksData[index][0].toString()),
+                trailing: Text(_amazonBooksData[index][2].toString()),
+                title: Text(_amazonBooksData[index][1]),
+                subtitle: Text(_amazonBooksData[index][4].toString()),
+                //May add isbn10 (index 3) here or within future card hero.
+                isThreeLine: true,
+              ),
+            );
+          },
+        ));
   }
 }
