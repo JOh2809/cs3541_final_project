@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'package:cs3541_final_project/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'VideoPlayer.dart';
 import 'package:intl/intl.dart';
  */
-
+List<ListTile> saved = [];
 class AmazonSearchPage extends StatefulWidget {
   final AmazonSearchPresenter presenter;
 
@@ -199,7 +200,27 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
                     Text(_amazonBooksData[index][0].toString()),
                     InkWell(
                         child: Text('Save Book'),
-                        onTap: () {}
+                        onTap: () {
+                          ListTile element = ListTile(
+                            leading: Column(
+                              children: <Widget> [
+                                Text(_amazonBooksData[index][0].toString()),
+                                Text('Swipe to Remove'),
+                              ],
+                            ),
+                            trailing: Text(_amazonBooksData[index][2].toString()),
+                            title: Text(_amazonBooksData[index][1]),
+                            subtitle: Text(_amazonBooksData[index][4].toString()),
+                          );
+                          if(!saved.contains(element)){
+                            saved.add(element);
+                          }
+                          Navigator.push(context,
+                            MaterialPageRoute(
+                            builder: (context) => SavedListScreen(),
+                            ),
+                          );
+                        }
                     ),
                   ]
               ),
