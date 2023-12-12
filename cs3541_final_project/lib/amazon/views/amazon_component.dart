@@ -373,7 +373,7 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
       );
     }
 
-    TextFormField bookRatingScoreField(BuildContext context) { //Hours slept
+    TextFormField bookRatingScoreField(BuildContext context) {
       return TextFormField(
         controller: _bookRatingScoreController,
         keyboardType: TextInputType.number,
@@ -382,7 +382,7 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
         onFieldSubmitted: (term) {},
         validator: (value) {
           if (value!.length == 0 || (double.parse(value) < 0 || double.parse(value) > 24)) {
-            return ('Hour between 0 - 24');
+            return ('Rate the book on a scale of 1 - 10');
           }
         },
         onSaved: (value) {
