@@ -66,6 +66,7 @@ flutter:
   assets:
     - assets/AlarmNoise.mp3
     - assets/Amazon_Books_Data.csv
+    - assets/Amazon_Books_Data2.csv
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
