@@ -1,5 +1,7 @@
 import 'package:cs3541_final_project/sound_page/sound_component.dart';
+import 'package:cs3541_final_project/sound_page/sound_presenter.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
 
@@ -91,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
-            /*
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(.5),
@@ -102,13 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return ReadMusicPage();
+                    return ReadMusicScreen();
                     },
                 ));
                 },
             ),
-
-             */
           ],
         ),
       );
@@ -150,5 +149,17 @@ class _AmazonBookReviewsScreen extends State<AmazonBookReviewsScreen> {
   Widget build(BuildContext context) {
     return new AmazonBookReviewsPage(
       new AmazonBookReviewsPresenter(), title: 'Amazon Book Reviews', key: Key("REVIEWS"),);
+  }
+}
+
+class ReadMusicScreen extends StatefulWidget {
+  @override _ReadMusicScreen createState() => _ReadMusicScreen();
+}
+
+class _ReadMusicScreen extends State<ReadMusicScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new ReadMusicPage(
+      new ReadMusicPresenter(), title: 'Sleep Music', key: Key("MUSIC"),);
   }
 }
