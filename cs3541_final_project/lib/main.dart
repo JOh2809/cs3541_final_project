@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.tealAccent.shade200,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -44,16 +45,27 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.flutter_dash_sharp),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        leading: FlutterLogo(
+          size: 100,
+          style: FlutterLogoStyle.stacked,
+          textColor: Colors.white,
+        ),
+        backgroundColor: Colors.brown.shade600,
+        title: Text('Amazon Books App', style: new TextStyle(fontSize: 27.0, fontWeight: FontWeight.w800, color: Colors.white),),
       ),
       body: Column(
           children: <Widget>[
+            ListTile(
+              leading: Text('Last Minute Deals', style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800, color: Colors.greenAccent.shade100),),
+              title: Text('Amazon Basics', style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800, color: Colors.white),) ,
+              trailing: Text('Todays Deals', style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800, color: Colors.white),),
+              tileColor: Colors.grey.shade700,
+            ),
+            SizedBox(height: 50,),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.withOpacity(.5),
-                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
               ),
               child: Text('Amazon Search', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
@@ -94,10 +106,26 @@ class _MyHomePageState extends State<MyHomePage> {
               ));
             },
           ),
+            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.withOpacity(.5),
-                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Amazon Book List', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AmazonBookListScreen();
+                  },
+                ));
+              },
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
               ),
               child: Text('Amazon Book Reviews', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
