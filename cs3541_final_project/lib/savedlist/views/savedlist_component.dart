@@ -9,9 +9,9 @@ class SavedListPage extends StatefulWidget {
   SavedListPage(this.presenter, {required Key? key, required this.title}) : super(key: key);
   final String title;
   @override
-  _BookListPageState createState() => _BookListPageState();
+  _SavedListPageState createState() => _SavedListPageState();
 }
-class _BookListPageState extends State<SavedListPage> {
+class _SavedListPageState extends State<SavedListPage> {
 
   void initState(){
     super.initState();
@@ -23,6 +23,22 @@ class _BookListPageState extends State<SavedListPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Saved Books'),
+        actions: [
+          PopupMenuButton(
+              itemBuilder: (context){
+                return [
+                  PopupMenuItem<int>(
+                      value: 0,
+                      child: Text('Sort by Price')
+                  ),
+                  PopupMenuItem<int>(
+                      value: 0,
+                      child: Text('Sort by Rating')
+                  ),
+                ];
+              }
+          )
+        ],
       ),
 
       body: ListView.builder(
