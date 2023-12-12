@@ -1,8 +1,11 @@
+import 'package:cs3541_final_project/sound_page/sound_component.dart';
+import 'package:cs3541_final_project/sound_page/sound_presenter.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'amazon/views/VideoPlayer.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
+import 'amazon/views/compare_book.dart';
 
 void main() {
   runApp(const MyApp());
