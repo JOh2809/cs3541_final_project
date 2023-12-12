@@ -1,5 +1,4 @@
-/*import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import '../presenter/alarm_presenter.dart';
 import 'dart:async';
 import 'dart:core';
@@ -19,10 +18,8 @@ class AlarmPage extends StatefulWidget {
 class _AlarmPageState extends State<AlarmPage> {
 
   TimeOfDay selectedTime = TimeOfDay.now();
-  //final player = AudioCache(fixedPlayer: AudioPlayer());
 
-  final player = AudioPlayer();
-  int checkButton = 0;
+  AudioPlayer player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -69,32 +66,6 @@ class _AlarmPageState extends State<AlarmPage> {
               ),
             ],
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: ElevatedButton(
-                    onPressed: () async {
-                      //await player.play(AssetSource('.../assets/AlarmNoise.mp3'));
-                      checkButton = 1;
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                              width: 5.0,
-                              color: Colors.white,
-                            ),
-                            borderRadius: BorderRadius.circular(360)),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 60),
-                        textStyle: const TextStyle(
-                            color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
-                    child: const Text("Stop"), ),
-              ),
-            ],
-          ),
         ],
       ),
     );
@@ -111,7 +82,6 @@ class _AlarmPageState extends State<AlarmPage> {
       setState(() {
         selectedTime = timeOfDay;
       });
-      checkButton = 0;
     }
 
     const fiveSec = Duration(seconds: 5);
@@ -124,23 +94,19 @@ class _AlarmPageState extends State<AlarmPage> {
     final DateTime timeSystem;
     timeSystem = DateTime.now();
     if (timeSystem.hour == selectedTime.hour &&
-        timeSystem.minute == selectedTime.minute &&
-        checkButton == 0) {
+        timeSystem.minute == selectedTime.minute) {
       AndroidAlarmManager.oneShotAt(
           DateTime(selectedTime.hour, selectedTime.minute),
           alarmId,
           //fireAlarm(player));
           fireAlarm(player));
-      HapticFeedback.vibrate();
-      checkButton = 1;
     }
   }
 }
 
 fireAlarm(player) {
-
-  HapticFeedback.vibrate();
-  player.play(AssetSource('AlarmNoise.mp3'));
+ print("PLAY AUDIO PLAY AUDIO");
+ player.play(AssetSource('AlarmNoise.mp3'));
 }
 
 extension TimeOfDayExtension on TimeOfDay {
@@ -158,5 +124,3 @@ extension TimeOfDayExtension on TimeOfDay {
     return replacing(hour: hour, minute: minute);
   }
 }
-
- */
