@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Implemented opening CSV file, assigning data within a list and displaying list through a ListView.">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Misc dart.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/presenter/amazon_presenter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/presenter/amazon_presenter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SweetDreams" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
@@ -78,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701991445986</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Misc dart.">
+      <created>1702322127791</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702322127791</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +116,7 @@
     <MESSAGE value="Misc" />
     <MESSAGE value="added dependencies for sound player and also created the functionality for this page." />
     <MESSAGE value="Implemented opening CSV file, assigning data within a list and displaying list through a ListView." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented opening CSV file, assigning data within a list and displaying list through a ListView." />
+    <MESSAGE value="Misc dart." />
+    <option name="LAST_COMMIT_MESSAGE" value="Misc dart." />
   </component>
 </project>
