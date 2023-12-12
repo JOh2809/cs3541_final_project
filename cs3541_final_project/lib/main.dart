@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(Icons.flutter_dash_sharp),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
@@ -74,6 +75,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) {
                     return AmazonBookListScreen();
+                  },
+                ));
+              },
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple.withOpacity(.5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Amazon Book Reviews', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AmazonBookReviewsScreen();
                   },
                 ));
               },
@@ -165,5 +181,17 @@ class _ComparisonScreen extends State<ComparisonScreen>{
   Widget build(BuildContext context) {
     return ComparisonPage(
         ComparisonPresenter(), title: "Alarm Page", key: const Key("COMPARISON"),);
+  }
+}
+
+class AmazonBookReviewsScreen extends StatefulWidget {
+  @override _AmazonBookReviewsScreen createState() => _AmazonBookReviewsScreen();
+}
+
+class _AmazonBookReviewsScreen extends State<AmazonBookReviewsScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new AmazonBookReviewsPage(
+      new AmazonBookReviewsPresenter(), title: 'Amazon Book Reviews', key: Key("REVIEWS"),);
   }
 }

@@ -174,12 +174,11 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Amazon Books Search Engine'),
+        title: Text('Amazon Books List'),
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -194,15 +193,131 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
                   margin: const EdgeInsets.all(6),
                   color: Colors.white,
                   child: ListTile(
-                    leading: Text(_amazonBooksData[index][0].toString()),
+                    leading: Text(_amazonBooksData[index][5].toString()),
                     trailing: Text(_amazonBooksData[index][2].toString()),
-                    title: Text(_amazonBooksData[index][1]),
-                    subtitle: Text(_amazonBooksData[index][4].toString()),
+                    title: Text(_amazonBooksData[index][0]),
+                    subtitle: Text(_amazonBooksData[index][1].toString()),
                     //May add isbn10 (index 3) here or within future card hero.
                     isThreeLine: true,
                   ),
                 );
               },
             ));
+  }
+}
+
+class AmazonBookReviewsPage extends StatefulWidget {
+  final AmazonBookReviewsPresenter presenter;
+
+  AmazonBookReviewsPage(this.presenter, {required Key? key, required this.title}) : super(key: key);
+  final String title;
+  @override
+  _AmazonBookReviewsPageState createState() => _AmazonBookReviewsPageState();
+}
+
+class _AmazonBookReviewsPageState extends State<AmazonBookReviewsPage> {
+  List<List<dynamic>> _amazonBooksData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _openCSV();
+  }
+
+  void _openCSV() async {
+    final rawData = await rootBundle.loadString("assets/Amazon_Books_Data.csv");
+    List<List<dynamic>> bookData = const CsvToListConverter().convert(rawData);
+    setState(() {
+      _amazonBooksData = bookData;
+    });
+  }
+
+  String dropdownValue = 'book title';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Amazon Book Reviews'),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios),
+          ),
+        ),
+        body: ListView.builder(
+          itemCount: _amazonBooksData.length,
+          itemBuilder: (_, index) {
+            return Card(
+              margin: const EdgeInsets.all(6),
+              color: Colors.white,
+              child: ListTile(
+                leading: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return AmazonGiveReviewScreen();
+                      },
+                    ));
+                  },
+                child: const Icon(Icons.draw_outlined),
+                ),
+                trailing:  GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return AmazonGiveReviewScreen();
+                      },
+                    ));
+                  },
+                  child: const Icon(Icons.reviews),
+                ),
+                title: Text(_amazonBooksData[index][0]),
+                subtitle: Text(_amazonBooksData[index][2].toString()),
+                //May add isbn10 (index 3) here or within future card hero.
+                isThreeLine: true,
+              ),
+            );
+          },
+        ));
+  }
+}
+
+class  AmazonGiveReviewScreen extends StatefulWidget {
+  @override _AmazonGiveReviewScreen createState() => _AmazonGiveReviewScreen();
+}
+
+class _AmazonGiveReviewScreen extends State<AmazonGiveReviewScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new  AmazonGiveReviewPage(
+      new  AmazonGiveReviewPresenter(), title: 'Amazon Review', key: Key("REVIEW"),);
+  }
+}
+
+class AmazonGiveReviewPage extends StatefulWidget {
+  final AmazonGiveReviewPresenter presenter;
+
+  AmazonGiveReviewPage(this.presenter, {required Key? key, required this.title}) : super(key: key);
+  final String title;
+  @override
+  _AmazonGiveReviewPageState createState() => _AmazonGiveReviewPageState();
+}
+
+class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+        title: Text('Write Your Review Here!'),
+          leading: GestureDetector(
+           onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios),
+          ),
+        ),
+    );
   }
 }
