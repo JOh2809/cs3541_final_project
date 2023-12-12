@@ -53,6 +53,10 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
 
   String _title = "";
   String _author = "";
+  String _price = "";
+  String _rating = "";
+  String _editionNumber = "";
+  String _publishDate = "";
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +95,10 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
                     if (isbn13 == _amazonBooksData[index][4].toString()) {
                       _title = _amazonBooksData[index][0].toString();
                       _author = _amazonBooksData[index][2].toString();
+                      _price = _amazonBooksData[index][11].toString();
+                      _rating = _amazonBooksData[index][9].toString();
+                      _editionNumber = _amazonBooksData[index][6].toString();
+                      _publishDate = _amazonBooksData[index][5].toString();
                     }
                   }
                 },
@@ -103,7 +111,11 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
                   String title = _amazonBooksData[index][0].toString();
                   String author = _amazonBooksData[index][2].toString();
                   String isbn =_amazonBooksData[index][4].toString();
-                  final String isbn13 = '$title, $author, $isbn';
+                  String price =_amazonBooksData[index][11].toString();
+                  String rating =_amazonBooksData[index][9].toString();
+                  String editionNumber =_amazonBooksData[index][6].toString();
+                  String publishDate =_amazonBooksData[index][5].toString();
+                  final String isbn13 = '$title, $author, $isbn, $price, $rating, $editionNumber, $publishDate';
                   return ListTile(
                     title: Text(isbn13),
                     onTap: () {
@@ -118,6 +130,14 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
             ListTile(
               title: Text(_title),
               subtitle: Text(_author),
+            ),
+            ListTile(
+              title: Text(_price),
+              subtitle: Text(_rating),
+            ),
+            ListTile(
+              title: Text(_publishDate),
+              subtitle: Text(_editionNumber),
             )
           ],
         )
