@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Removed unnecessary commented out code.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Dart File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="main" />
@@ -40,20 +34,13 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/brfaw/OneDrive/Desktop/Software Eng/SweetDreamsProject&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" />
@@ -90,49 +77,42 @@
       <option name="project" value="LOCAL" />
       <updated>1702145351599</updated>
     </task>
-    <task id="LOCAL-00004" summary="worked on youtube page">
-      <created>1702403089495</created>
+    <task id="LOCAL-00004" summary="Added Amazon Give Review Page">
+      <created>1702339965634</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1702403089495</updated>
+      <updated>1702339965634</updated>
     </task>
-    <task id="LOCAL-00005" summary="worked on youtube page">
-      <created>1702403178767</created>
+    <task id="LOCAL-00005" summary="Implemented search ability through isbn13 value.">
+      <created>1702343504460</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1702403178767</updated>
+      <updated>1702343504460</updated>
     </task>
-    <task id="LOCAL-00006" summary="worked on youtube page">
-      <created>1702403200977</created>
+    <task id="LOCAL-00006" summary="Search bar includes extra requirements like price and edition number.">
+      <created>1702349643960</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1702403200977</updated>
+      <updated>1702349643960</updated>
     </task>
-    <task id="LOCAL-00007" summary="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
-      <created>1702406157532</created>
+    <task id="LOCAL-00007" summary="Youtube page created and needs a little tweaking to work correctly.">
+      <created>1702350913399</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1702406157532</updated>
+      <updated>1702350913399</updated>
     </task>
-    <task id="LOCAL-00008" summary="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
-      <created>1702406166639</created>
+    <task id="LOCAL-00008" summary="Removed unnecessary commented out code.">
+      <created>1702404774445</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1702406166639</updated>
+      <updated>1702404774446</updated>
     </task>
-    <task id="LOCAL-00009" summary="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
-      <created>1702408583907</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1702408583907</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,7 +120,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="marko166" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -149,8 +141,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Misc" />
     <MESSAGE value="Implemented opening CSV file, assigning data within a list and displaying list through a ListView." />
-    <MESSAGE value="worked on youtube page" />
-    <MESSAGE value="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart" />
+    <MESSAGE value="Added Amazon Give Review Page" />
+    <MESSAGE value="Implemented search ability through isbn13 value." />
+    <MESSAGE value="Search bar includes extra requirements like price and edition number." />
+    <MESSAGE value="Youtube page created and needs a little tweaking to work correctly." />
+    <MESSAGE value="Removed unnecessary commented out code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary commented out code." />
   </component>
 </project>
