@@ -1,11 +1,11 @@
 
 import 'package:cs3541_final_project/amazon/views/compare_book.dart';
-import 'package:cs3541_final_project/comparison/presenter/comparison_presenter.dart';
-import 'package:cs3541_final_project/comparison/views/comparison_components.dart';
 import 'package:flutter/material.dart';
 import 'amazon/views/VideoPlayer.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
+import '../savedlist/presenter/savedlist_presenter.dart';
+import '../savedlist/views/savedlist_component.dart';
 import 'alarm/presenter/alarm_presenter.dart';
 import 'alarm/views/alarm_component.dart';
 
@@ -105,6 +105,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.purple.withOpacity(.5),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple.withOpacity(.5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Saved Books', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return SavedListScreen();
+                  },
+                ));
+              },
             ),
             child: Text('Compare Book ', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
             onPressed: () {
@@ -386,20 +401,6 @@ class _AlarmScreen extends State<AlarmScreen> {
   }
 }
 
-class ComparisonScreen extends StatefulWidget {
-  const ComparisonScreen({super.key});
-  @override
-  State<ComparisonScreen> createState() => _ComparisonScreen();
-}
-
-class _ComparisonScreen extends State<ComparisonScreen>{
-  @override
-  Widget build(BuildContext context) {
-    return ComparisonPage(
-        ComparisonPresenter(), title: "Alarm Page", key: const Key("COMPARISON"),);
-  }
-}
-
 class AmazonBookReviewsScreen extends StatefulWidget {
   @override _AmazonBookReviewsScreen createState() => _AmazonBookReviewsScreen();
 }
@@ -409,5 +410,18 @@ class _AmazonBookReviewsScreen extends State<AmazonBookReviewsScreen> {
   Widget build(BuildContext context) {
     return new AmazonBookReviewsPage(
       new AmazonBookReviewsPresenter(), title: 'Amazon Book Reviews', key: Key("REVIEWS"),);
+  }
+}
+
+class SavedListScreen extends StatefulWidget {
+ @override _SavedListScreen createState() => _SavedListScreen();
+}
+
+class _SavedListScreen extends State<SavedListScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new SavedListPage(
+      new SavedListPresenter(), title: 'Saved Books', key:Key("SAVED BOOKS"),
+    );
   }
 }
