@@ -32,11 +32,21 @@ class _SavedListPageState extends State<SavedListPage> {
                       child: Text('Sort by Price')
                   ),
                   PopupMenuItem<int>(
-                      value: 0,
+                      value: 1,
                       child: Text('Sort by Rating')
                   ),
                 ];
-              }
+              },
+            onSelected: (value){
+                if(value == 0){
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text('Sorting Books By Price')));
+                }
+                else if(value == 1){
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text('Sorting Books By Rating')));
+                }
+            },
           )
         ],
       ),
