@@ -36,7 +36,17 @@ class _SavedListPageState extends State<SavedListPage> {
                         child: Text('Sort by Rating')
                     ),
                   ];
-                }
+                },
+              onSelected: (value) {
+                  if(value == 0){
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar((SnackBar(content: Text('Sorting Books by Price'))));
+                  }
+                  else if(value == 1) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text('Sorting Books by Rating')));
+                  }
+              },
             )
           ],
         ),

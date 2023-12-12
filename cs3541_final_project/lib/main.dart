@@ -1,7 +1,10 @@
 
 import 'package:cs3541_final_project/amazon/views/compare_book.dart';
+import 'package:cs3541_final_project/sound_page/sound_component.dart';
+import 'package:cs3541_final_project/sound_page/sound_presenter.dart';
 import 'package:flutter/material.dart';
 import 'amazon/views/VideoPlayer.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
 import '../savedlist/presenter/savedlist_presenter.dart';
@@ -23,6 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.tealAccent.shade200,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -46,36 +50,75 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.flutter_dash_sharp),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        leading: FlutterLogo(
+          size: 100,
+          style: FlutterLogoStyle.stacked,
+          textColor: Colors.white,
+        ),
+        backgroundColor: Colors.brown.shade600,
+        title: Text('Amazon Books App', style: new TextStyle(fontSize: 27.0, fontWeight: FontWeight.w800, color: Colors.white),),
       ),
       body: Column(
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+          children: <Widget>[
+            ListTile(
+              leading: Text('Last Minute Deals', style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800, color: Colors.greenAccent.shade100),),
+              title: Text('Amazon Basics', style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800, color: Colors.white),) ,
+              trailing: Text('Todays Deals', style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.w800, color: Colors.white),),
+              tileColor: Colors.grey.shade700,
             ),
-            child: Text('Amazon Search', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return AmazonSearchScreen();
-                },
-              ));
-            },
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+            SizedBox(height: 50,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Amazon Search', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AmazonSearchScreen();
+                  },
+                ));
+              },
+    ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Amazon Book List', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AmazonBookListScreen();
+                  },
+                ));
+              },
             ),
-            child: Text('YouTube'),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Amazon Book Reviews', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return AmazonBookReviewsScreen();
+                  },
+                ));
+              },
+            ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white.withOpacity(.7),
+                    foregroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+                ),
+                child: Text('YouTube', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -86,23 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-            ),
-            child: Text('Amazon Book List', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return AmazonBookListScreen();
-                },
-              ));
-            },
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
+                backgroundColor: Colors.white.withOpacity(.7),
+                foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
             ),
             child: Text('Compare Book ', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
@@ -113,25 +141,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ));
             },
-          ),ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-            ),
-            child: Text('Amazon Book Reviews', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return AmazonBookReviewsScreen();
-                },
-              ));
-            },
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
+                backgroundColor: Colors.white.withOpacity(.7),
+                foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
             ),
             child: Text('Saved Books', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
@@ -145,8 +159,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
+                backgroundColor: Colors.white.withOpacity(.7),
+                foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
             ),
             child: const Text('Alarm Page', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
@@ -158,6 +172,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ));
             },
           ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(.7),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Youtube Sounds Page', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return ReadMusicScreen();
+                  },
+                ));
+              },
+            ),
+            SizedBox(height: 250,),
+            Text('Data Provided by Muhammad Uzair Khan', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800))
         ],
       ),
     );
@@ -389,6 +420,18 @@ class _AmazonBookReviewsScreen extends State<AmazonBookReviewsScreen> {
   Widget build(BuildContext context) {
     return new AmazonBookReviewsPage(
       new AmazonBookReviewsPresenter(), title: 'Amazon Book Reviews', key: Key("REVIEWS"),);
+  }
+}
+
+class ReadMusicScreen extends StatefulWidget {
+  @override _ReadMusicScreen createState() => _ReadMusicScreen();
+}
+
+class _ReadMusicScreen extends State<ReadMusicScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return new ReadMusicPage(
+      new ReadMusicPresenter(), title: 'Sleep Music', key: Key("MUSIC"),);
   }
 }
 

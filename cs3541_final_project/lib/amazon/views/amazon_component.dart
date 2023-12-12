@@ -36,26 +36,8 @@ class AmazonSearchPage extends StatefulWidget {
 
 class _AmazonSearchPageState extends State<AmazonSearchPage> {
   //final AmazonSearchPresenter presenter;
-  AmazonSearchPageState() {
-    _filter.addListener(() {
-      if (_filter.text.isEmpty) {
-        setState(() {
-          _searchText = "";
-          filteredNames = _amazonBooksData;
-        });
-      } else {
-        setState(() {
-          _searchText = _filter.text;
-        });
-      }
-    });
-  }
-
-  final TextEditingController _filter = new TextEditingController();
-  String _searchText = "";
+  AmazonSearchPageState() {}
   List<List<dynamic>> _amazonBooksData = [];
-  List<List> filteredNames = []; // names filtered by search text
-
 
   @override
   void initState() {
@@ -71,26 +53,12 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
     });
   }
 
-  Widget _buildList() {
-    if (!(_searchText.isEmpty)) {
-      List<List> tempList = [];
-      for (int i = 0; i < filteredNames.length; i++) {
-        if (filteredNames[i][4].contains(_searchText)) {
-          tempList.add(filteredNames[i]);
-        }
-      }
-      filteredNames = tempList;
-    }
-    return ListView.builder(
-      itemCount: _amazonBooksData == null ? 0 : filteredNames.length,
-      itemBuilder: (BuildContext context, int index) {
-        return new ListTile(
-          title: Text(filteredNames[index][4]),
-          onTap: () => print(filteredNames[index][4]),
-        );
-      },
-    );
-  }
+  String _title = "";
+  String _author = "";
+  String _price = "";
+  String _rating = "";
+  String _editionNumber = "";
+  String _publishDate = "";
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +71,7 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
           },
           child: const Icon(Icons.arrow_back_ios),
         ),
+        backgroundColor: Colors.brown.shade600,
       ),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -120,16 +89,35 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
                     onChanged: (_) {
                       controller.openView();
                     },
+                    onSubmitted: (String isbn13) {
+                      setState(() {
+                        isbn13 = controller.text;
+                      });
+                      for (int index = 0; index < _amazonBooksData.length; index++) {
+                        if (isbn13 == _amazonBooksData[index][4].toString()) {
+                          _title = _amazonBooksData[index][0].toString();
+                          _author = _amazonBooksData[index][2].toString();
+                          _price = _amazonBooksData[index][11].toString();
+                          _rating = _amazonBooksData[index][9].toString();
+                          _editionNumber = _amazonBooksData[index][6].toString();
+                          _publishDate = _amazonBooksData[index][5].toString();
+                        }
+                      }
+                    },
                     leading: const Icon(Icons.search),
                   );
                 },
                 suggestionsBuilder: (BuildContext context,
                     SearchController controller) {
                   return List<ListTile>.generate(_amazonBooksData.length, (int index) {
-                    String title =_amazonBooksData[index][0].toString();
-                    String author =_amazonBooksData[index][2].toString();
+                    String title = _amazonBooksData[index][0].toString();
+                    String author = _amazonBooksData[index][2].toString();
                     String isbn =_amazonBooksData[index][4].toString();
-                    final String isbn13 = '$title, $author, $isbn';
+                    String price =_amazonBooksData[index][11].toString();
+                    String rating =_amazonBooksData[index][9].toString();
+                    String editionNumber =_amazonBooksData[index][6].toString();
+                    String publishDate =_amazonBooksData[index][5].toString();
+                    final String isbn13 = '$title, $author, $isbn, $price, $rating, $editionNumber, $publishDate';
                     return ListTile(
                       title: Text(isbn13),
                       onTap: () {
@@ -141,12 +129,23 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
                   });
                 },
               ),
+              ListTile(
+                title: Text(_title),
+                subtitle: Text(_author),
+              ),
+              ListTile(
+                title: Text(_price),
+                subtitle: Text(_rating),
+              ),
+              ListTile(
+                title: Text(_publishDate),
+                subtitle: Text(_editionNumber),
+              )
             ],
           )
       ),
     );
   }
-
 }
 
 
