@@ -106,7 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ));
             },
           ),
-            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white.withOpacity(.7),
@@ -168,8 +167,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
-        ],
-      ),
+         ]
+      )
     );
   }
 }
