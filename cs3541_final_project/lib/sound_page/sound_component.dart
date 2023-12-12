@@ -28,19 +28,19 @@ class _ReadMusicPageState extends State<ReadMusicPage> {
               style: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.black),),
             const SizedBox(height: 10,),
-            YoutubeVideo("https://www.youtube.com/watch?v=SaRjRbkW6K4"),
+            YoutubeVideo("https://www.youtube.com/watch?v=AFqv-dyuDtw"),
             const SizedBox(height: 10,),
             const Text("Relaxing Water Sounds for Studying                                                      ",
               style: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.black),),
             const SizedBox(height: 10,),
-            YoutubeVideo("https://www.youtube.com/watch?v=A1IYf7fKdhY"),
+            YoutubeVideo("https://www.youtube.com/watch?v=ikQOMuMMY9M"),
             const SizedBox(height: 10,),
             const Text("Deep White Noise for Peaceful Studies                                                ",
               style: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.black),),
             const SizedBox(height: 10,),
-            YoutubeVideo("https://www.youtube.com/watch?v=FdN1pnEaJs0")
+            YoutubeVideo("https://www.youtube.com/watch?v=sCc3UtzZDEo")
           ],),
       ),
     );
