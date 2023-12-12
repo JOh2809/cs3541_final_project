@@ -4,6 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../presenter/amazon_presenter.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 /*
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -69,6 +70,7 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
           },
           child: const Icon(Icons.arrow_back_ios),
         ),
+        backgroundColor: Colors.brown.shade600,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -143,7 +145,9 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
       ),
     );
   }
-}
+
+  }
+
 
 class AmazonBookListPage extends StatefulWidget {
   final AmazonBookListPresenter presenter;
@@ -184,6 +188,7 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
           },
           child: const Icon(Icons.arrow_back_ios),
         ),
+        backgroundColor: Colors.brown.shade600,
       ),
       body: ListView.builder(
               itemCount: _amazonBooksData.length,
@@ -244,6 +249,7 @@ class _AmazonBookReviewsPageState extends State<AmazonBookReviewsPage> {
             },
             child: const Icon(Icons.arrow_back_ios),
           ),
+          backgroundColor: Colors.brown.shade600,
         ),
         body: Padding (
           padding: const EdgeInsets.all(8.0),
@@ -393,7 +399,7 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
       );
     }
 
-    TextFormField bookRatingScoreField(BuildContext context) { //Hours slept
+    TextFormField bookRatingScoreField(BuildContext context) {
       return TextFormField(
         controller: _bookRatingScoreController,
         keyboardType: TextInputType.number,
@@ -402,7 +408,7 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
         onFieldSubmitted: (term) {},
         validator: (value) {
           if (value!.length == 0 || (double.parse(value) < 0 || double.parse(value) > 24)) {
-            return ('Hour between 0 - 24');
+            return ('Rate the book on a scale of 1 - 10');
           }
         },
         onSaved: (value) {
@@ -447,6 +453,7 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
             },
             child: const Icon(Icons.arrow_back_ios),
           ),
+          backgroundColor: Colors.brown.shade600,
         ),
       body: Container(child: ListView(
         children: <Widget>[

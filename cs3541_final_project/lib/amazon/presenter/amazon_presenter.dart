@@ -9,3 +9,6 @@ class InformationScreenPresenter {}
 class SearchedInformationPresenter {}
 
  */
+
+class YouTubePresenter {
+}

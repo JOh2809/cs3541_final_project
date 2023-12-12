@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="misc commit.">
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Misc Unversioned Files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_component.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +15,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="ortiz426" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="marko166" />
+        <entry key="$PROJECT_DIR$" value="6fe18d7388e4993638cfaad072ae82265a1071e4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,13 +35,19 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ortiz/AndroidStudioProjects/cs3541_final_project1&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" />
@@ -98,35 +98,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702343504460</updated>
     </task>
-    <task id="LOCAL-00006" summary="Search bar includes extra requirements like price and edition number.">
-      <created>1702349643960</created>
+    <task id="LOCAL-00006" summary="Finished implementing and designing Amazon Book Reviews page">
+      <created>1702346622974</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1702349643960</updated>
+      <updated>1702346622974</updated>
     </task>
-    <task id="LOCAL-00007" summary="Youtube page created and needs a little tweaking to work correctly.">
-      <created>1702350913399</created>
+    <task id="LOCAL-00007" summary="Misc Unversioned Files">
+      <created>1702346638131</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1702350913399</updated>
+      <updated>1702346638131</updated>
     </task>
-    <task id="LOCAL-00008" summary="Removed unnecessary commented out code.">
-      <created>1702404774445</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1702404774446</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added Youtube sounds page to home page.">
-      <created>1702406915097</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1702406915097</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,19 +120,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -157,11 +131,8 @@
     <MESSAGE value="Implemented opening CSV file, assigning data within a list and displaying list through a ListView." />
     <MESSAGE value="Added Amazon Give Review Page" />
     <MESSAGE value="Implemented search ability through isbn13 value." />
-    <MESSAGE value="Search bar includes extra requirements like price and edition number." />
-    <MESSAGE value="Youtube page created and needs a little tweaking to work correctly." />
-    <MESSAGE value="Removed unnecessary commented out code." />
-    <MESSAGE value="Added Youtube sounds page to home page." />
-    <MESSAGE value="misc commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="misc commit." />
+    <MESSAGE value="Finished implementing and designing Amazon Book Reviews page" />
+    <MESSAGE value="Misc Unversioned Files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Misc Unversioned Files" />
   </component>
 </project>
