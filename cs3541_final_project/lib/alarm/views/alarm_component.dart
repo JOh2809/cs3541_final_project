@@ -18,8 +18,15 @@ class AlarmPage extends StatefulWidget {
 class _AlarmPageState extends State<AlarmPage> {
 
   TimeOfDay selectedTime = TimeOfDay.now();
+  String displayText = "";
+  final player = AudioPlayer();
+  int checkButton = 0;
 
-  AudioPlayer player = AudioPlayer();
+  void changeText() {
+    setState(() {
+      displayText = "";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +37,19 @@ class _AlarmPageState extends State<AlarmPage> {
       ),
       body: Column(
         children: [
+          const Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Text(
+                  "Click on the clock to set an alarm",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25),
+                ),
+              ),
+            ],
+          ),
           Row(
             //crossAxisAlignment: CrossAxisAlignment.center,
             //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,7 +65,11 @@ class _AlarmPageState extends State<AlarmPage> {
                     tooltip: '!',
                     onPressed: () async {
                       _selectTime(context);
-                    }),
+                      setState(() {
+                        displayText = "You have an alarm set for: \n ${selectedTime.hour}:${selectedTime.minute}";
+                      });
+                    }
+                    ),
               ),
             ],
           ),
@@ -59,10 +83,38 @@ class _AlarmPageState extends State<AlarmPage> {
             children: [
               Expanded(
                 child: Text(
-                  " ${selectedTime.hour}:${selectedTime.minute}",
+                  displayText,
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 25),
                 ),
+              ),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () async {
+                    changeText();
+                    //await player.play(AssetSource('.../assets/AlarmNoise.mp3'));
+                    checkButton = 1;
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.redAccent
+                      ,
+                      shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            width: 5.0,
+                            color: Colors.white,
+                          ),
+                          borderRadius: BorderRadius.circular(360)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 60, vertical: 60),
+                      textStyle: const TextStyle(
+                          color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+                  child: const Text("Delete Alarm"),  ),
               ),
             ],
           ),
@@ -72,7 +124,7 @@ class _AlarmPageState extends State<AlarmPage> {
   }
 
   _selectTime(BuildContext context) async {
-    final TimeOfDay? timeOfDay = await showTimePicker(
+    final  TimeOfDay? timeOfDay = await showTimePicker(
       context: context,
       initialTime: selectedTime,
       initialEntryMode: TimePickerEntryMode.dial,
@@ -94,18 +146,19 @@ class _AlarmPageState extends State<AlarmPage> {
     final DateTime timeSystem;
     timeSystem = DateTime.now();
     if (timeSystem.hour == selectedTime.hour &&
-        timeSystem.minute == selectedTime.minute) {
+        timeSystem.minute == selectedTime.minute && checkButton == 0) {
+
       AndroidAlarmManager.oneShotAt(
           DateTime(selectedTime.hour, selectedTime.minute),
           alarmId,
           //fireAlarm(player));
           fireAlarm(player));
+      checkButton = 1;
     }
   }
 }
 
 fireAlarm(player) {
- print("PLAY AUDIO PLAY AUDIO");
  player.play(AssetSource('AlarmNoise.mp3'));
 }
 
