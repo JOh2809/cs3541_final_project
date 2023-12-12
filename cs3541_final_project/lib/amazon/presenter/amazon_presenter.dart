@@ -5,3 +5,10 @@ class AmazonBookListPresenter {}
 
 class YouTubePresenter {
 }
+class AmazonBookReviewsPresenter {}
+class AmazonGiveReviewPresenter {}
+/*
+class InformationScreenPresenter {}
+class SearchedInformationPresenter {}
+
+ */
