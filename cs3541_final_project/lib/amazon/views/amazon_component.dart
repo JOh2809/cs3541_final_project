@@ -456,32 +456,3 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
     );
   }
 }
-/*
-class InformationScreen extends StatefulWidget {
-
-  @override
-  _InformationScreenState createState() => _InformationScreenState();
-}
-
-class _InformationScreenState extends State<InformationScreen> {
-  final List<List<dynamic>> _amazonBooksData = [];
-
-  @override
-  Widget build(BuildContext context) {
-    return new SearchedInformationPage(
-      new SearchedInformationPresenter(), title: 'Search Results',
-      key: Key("info"),
-    );
-  }
-}
-
-class SearchedInformationPage extends StatefulWidget {
-  final SearchedInformationPresenter presenter;
-
-  SearchedInformationPage(this.presenter, {required Key? key, required this.title}) : super(key: key);
-  final String title;
-  @override
-  _InformationScreenState createState() => _InformationScreenState();
-}
-
- */

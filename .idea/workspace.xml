@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Search bar includes extra requirements like price and edition number.">
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_component.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_player.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_presenter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/sound_page/sound_presenter.dart" afterDir="false" />
-    </list>
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Youtube page created and needs a little tweaking to work correctly." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,8 +32,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -97,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702349643960</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Youtube page created and needs a little tweaking to work correctly.">
+      <created>1702350913399</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702350913399</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +122,7 @@
     <MESSAGE value="Added Amazon Give Review Page" />
     <MESSAGE value="Implemented search ability through isbn13 value." />
     <MESSAGE value="Search bar includes extra requirements like price and edition number." />
-    <option name="LAST_COMMIT_MESSAGE" value="Search bar includes extra requirements like price and edition number." />
+    <MESSAGE value="Youtube page created and needs a little tweaking to work correctly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Youtube page created and needs a little tweaking to work correctly." />
   </component>
 </project>
