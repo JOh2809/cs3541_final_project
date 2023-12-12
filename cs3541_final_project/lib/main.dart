@@ -1,11 +1,11 @@
-import 'package:cs3541_final_project/amazon/views/compare_book.dart';
 import 'package:cs3541_final_project/sound_page/sound_component.dart';
 import 'package:cs3541_final_project/sound_page/sound_presenter.dart';
 import 'package:flutter/material.dart';
-import 'amazon/views/VideoPlayer.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'amazon/views/VideoPlayer.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
+import 'amazon/views/compare_book.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,7 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ));
               },
-            ),
+            ),ElevatedButton(
+    style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.purple.withOpacity(.5),
+    foregroundColor: Colors.white,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+    ),
             child: Text('YouTube'),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -89,13 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ));
             },
           ),
-          ElevatedButton(
-
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple.withOpacity(.5),
@@ -113,35 +111,38 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple.withOpacity(.5),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+                  backgroundColor: Colors.purple.withOpacity(.5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
               ),
               child: Text('Youtube Sounds Page', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) {
                     return ReadMusicScreen();
-                    },
+                  },
                 ));
-                },
+              },
             ),
-          ],
-        ),
-      );
-            child: Text('Compare Book ', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return CompareBook();
-                },
-              ));
-            },
-          ),
+            ElevatedButton(
+
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple.withOpacity(.5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Compare Book ', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return CompareBook();
+                  },
+                ));
+              },
+            ),
         ],
       ),
     );
-    //);
   }
 }
 
@@ -233,7 +234,6 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
     "https://www.youtube.com/watch?v=dNo_BVzNb28",
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -246,7 +246,7 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
-              padding: EdgeInsets.symmetric(vertical: 5 ),
+              padding: EdgeInsets.symmetric(vertical: 5),
               decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(
@@ -260,21 +260,29 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
                   borderRadius: BorderRadius.circular(
                     10,
                   ),
-                  color: Theme.of(context).primaryColor,
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
                 tabs: [
                   // first tab [you can add an icon using the icon property]
                   Tab(
-                    child: Text(' Review Books ',style: TextStyle(fontSize: 12),textAlign: TextAlign.center,),
+                    child: Text(
+                      ' Review Books ', style: TextStyle(fontSize: 12),
+                      textAlign: TextAlign.center,),
                   ),
                   Tab(
 
-                    child: Text(" Study Habits ",style: TextStyle(fontSize: 12),textAlign: TextAlign.center,),
+                    child: Text(
+                      " Study Habits ", style: TextStyle(fontSize: 12),
+                      textAlign: TextAlign.center,),
                   ),
                   Tab(
-                    child: Text(' Computer Science video ',style: TextStyle(fontSize: 12),textAlign: TextAlign.center,),
+                    child: Text(' Computer Science video ',
+                      style: TextStyle(fontSize: 12),
+                      textAlign: TextAlign.center,),
                   ),
                 ],
               ),
@@ -290,10 +298,11 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
                           ListView.builder(
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
-                              itemCount : bookReviews.length,
-                              itemBuilder: (context, index){
+                              itemCount: bookReviews.length,
+                              itemBuilder: (context, index) {
                                 return Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
                                     child: YoutubeVideo(bookReviews[index]));
                               })
                         ],
@@ -307,10 +316,11 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
                           ListView.builder(
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
-                              itemCount : studyHabits.length,
-                              itemBuilder: (context, index){
+                              itemCount: studyHabits.length,
+                              itemBuilder: (context, index) {
                                 return Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
                                     child: YoutubeVideo(studyHabits[index]));
                               })
                         ],
@@ -324,11 +334,13 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
                           ListView.builder(
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
-                              itemCount : computerScienceVideo.length,
-                              itemBuilder: (context, index){
+                              itemCount: computerScienceVideo.length,
+                              itemBuilder: (context, index) {
                                 return Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                                    child: YoutubeVideo(computerScienceVideo[index]));
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    child: YoutubeVideo(
+                                        computerScienceVideo[index]));
                               })
                         ],
                       ),
@@ -341,11 +353,10 @@ class _YouTubeScreenState extends State<YouTubeScreen> with SingleTickerProvider
         ),
       ),
     );
-
-
-
   }
 }
+
+
 
 class AmazonBookReviewsScreen extends StatefulWidget {
   @override _AmazonBookReviewsScreen createState() => _AmazonBookReviewsScreen();
@@ -370,5 +381,3 @@ class _ReadMusicScreen extends State<ReadMusicScreen> {
       new ReadMusicPresenter(), title: 'Sleep Music', key: Key("MUSIC"),);
   }
 }
-
-
