@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="worked on youtube page">
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" afterDir="false" />
     </list>
@@ -112,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702403200977</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
+      <created>1702406157532</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702406157532</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart">
+      <created>1702406166639</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702406166639</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,7 +144,8 @@
     <MESSAGE value="Misc" />
     <MESSAGE value="Implemented opening CSV file, assigning data within a list and displaying list through a ListView." />
     <MESSAGE value="worked on youtube page" />
-    <option name="LAST_COMMIT_MESSAGE" value="worked on youtube page" />
+    <MESSAGE value="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'joh21423' of https://github.umn.edu/Ortiz426/cs3541_final_project into joh21423&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;cs3541_final_project/lib/amazon/views/amazon_component.dart&#10;#&#9;cs3541_final_project/lib/main.dart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

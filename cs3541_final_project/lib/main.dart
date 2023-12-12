@@ -1,4 +1,3 @@
-
 import 'package:cs3541_final_project/amazon/views/compare_book.dart';
 import 'package:flutter/material.dart';
 import 'amazon/views/VideoPlayer.dart';
