@@ -1,7 +1,7 @@
 
 import 'package:cs3541_final_project/amazon/views/compare_book.dart';
 import 'package:flutter/material.dart';
-import 'amazon/views/videoplayer.dart';
+import 'amazon/views/VideoPlayer.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
 
