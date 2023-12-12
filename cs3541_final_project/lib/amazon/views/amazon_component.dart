@@ -65,6 +65,7 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
           },
           child: const Icon(Icons.arrow_back_ios),
         ),
+        backgroundColor: Colors.brown.shade600,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -164,6 +165,7 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
           },
           child: const Icon(Icons.arrow_back_ios),
         ),
+        backgroundColor: Colors.brown.shade600,
       ),
       body: ListView.builder(
               itemCount: _amazonBooksData.length,
@@ -224,6 +226,7 @@ class _AmazonBookReviewsPageState extends State<AmazonBookReviewsPage> {
             },
             child: const Icon(Icons.arrow_back_ios),
           ),
+          backgroundColor: Colors.brown.shade600,
         ),
         body: Padding (
           padding: const EdgeInsets.all(8.0),
@@ -427,6 +430,7 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
             },
             child: const Icon(Icons.arrow_back_ios),
           ),
+          backgroundColor: Colors.brown.shade600,
         ),
       body: Container(child: ListView(
         children: <Widget>[
