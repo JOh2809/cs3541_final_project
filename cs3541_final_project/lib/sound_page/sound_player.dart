@@ -8,7 +8,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 class YoutubeVideo extends StatefulWidget {
   String youtubeUrl;
 
-  YoutubeVideo(this.youtubeUrl);
+  YoutubeVideo(this.youtubeUrl, {super.key});
 
   @override
   _YoutubeVideoState createState() => _YoutubeVideoState();
@@ -19,7 +19,7 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
   late YoutubePlayerController _controller;
   late TextEditingController _idController;
   late TextEditingController _seekToController;
-  bool _isPlayerReady = false;
+  final bool _isPlayerReady = false;
   late String videoId;
 
   @override

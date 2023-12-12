@@ -1,3 +1,4 @@
+import 'package:cs3541_final_project/sound_page/sound_component.dart';
 import 'package:flutter/material.dart';
 import 'amazon/views/amazon_component.dart';
 import '../amazon/presenter/amazon_presenter.dart';
@@ -90,6 +91,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ));
               },
             ),
+            /*
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple.withOpacity(.5),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+              ),
+              child: Text('Youtube Sounds Page', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return ReadMusicPage();
+                    },
+                ));
+                },
+            ),
+
+             */
           ],
         ),
       );
