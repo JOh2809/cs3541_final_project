@@ -100,26 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           ElevatedButton(
-
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple.withOpacity(.5),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.withOpacity(.5),
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-              ),
-              child: Text('Saved Books', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return SavedListScreen();
-                  },
-                ));
-              },
             ),
             child: Text('Compare Book ', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
             onPressed: () {
@@ -129,59 +113,54 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ));
             },
+          ),ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple.withOpacity(.5),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+            ),
+            child: Text('Amazon Book Reviews', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return AmazonBookReviewsScreen();
+                },
+              ));
+            },
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple.withOpacity(.5),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+            ),
+            child: Text('Saved Books', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return SavedListScreen();
+                },
+              ));
+            },
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple.withOpacity(.5),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
+            ),
+            child: const Text('Alarm Page', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return const AlarmScreen();
+                },
+              ));
+            },
           ),
         ],
       ),
     );
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.withOpacity(.5),
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-              ),
-              child: Text('Amazon Book Reviews', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return AmazonBookReviewsScreen();
-                  },
-                ));
-              },
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.withOpacity(.5),
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-              ),
-              child: const Text('Alarm Page', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const AlarmScreen();
-                  },
-                ));
-              },
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.withOpacity(.5),
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0))
-              ),
-              child: Text('Book List Comparison', style: new TextStyle(fontSize: 20.0, fontWeight: FontWeight.w800),),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return const ComparisonScreen();
-                  },
-                ));
-              },
-            ),
-          ],
-        ),
-      );
-    //);
   }
 }
 

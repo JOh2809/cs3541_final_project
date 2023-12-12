@@ -1,9 +1,9 @@
 import 'dart:core';
-import 'package:cs3541_final_project/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../main.dart';
 import '../presenter/amazon_presenter.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -36,8 +36,26 @@ class AmazonSearchPage extends StatefulWidget {
 
 class _AmazonSearchPageState extends State<AmazonSearchPage> {
   //final AmazonSearchPresenter presenter;
-  AmazonSearchPageState() {}
+  AmazonSearchPageState() {
+    _filter.addListener(() {
+      if (_filter.text.isEmpty) {
+        setState(() {
+          _searchText = "";
+          filteredNames = _amazonBooksData;
+        });
+      } else {
+        setState(() {
+          _searchText = _filter.text;
+        });
+      }
+    });
+  }
+
+  final TextEditingController _filter = new TextEditingController();
+  String _searchText = "";
   List<List<dynamic>> _amazonBooksData = [];
+  List<List> filteredNames = []; // names filtered by search text
+
 
   @override
   void initState() {
@@ -53,8 +71,26 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
     });
   }
 
-  String _title = "";
-  String _author = "";
+  Widget _buildList() {
+    if (!(_searchText.isEmpty)) {
+      List<List> tempList = [];
+      for (int i = 0; i < filteredNames.length; i++) {
+        if (filteredNames[i][4].contains(_searchText)) {
+          tempList.add(filteredNames[i]);
+        }
+      }
+      filteredNames = tempList;
+    }
+    return ListView.builder(
+      itemCount: _amazonBooksData == null ? 0 : filteredNames.length,
+      itemBuilder: (BuildContext context, int index) {
+        return new ListTile(
+          title: Text(filteredNames[index][4]),
+          onTap: () => print(filteredNames[index][4]),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,64 +105,49 @@ class _AmazonSearchPageState extends State<AmazonSearchPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            SearchAnchor(
-              builder: (BuildContext context, SearchController controller) {
-                return SearchBar(
-                  controller: controller,
-                  padding: const MaterialStatePropertyAll<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 16.0)),
-                  onTap: () {
-                    controller.openView();
-                  },
-                  onChanged: (_) {
-                    controller.openView();
-                  },
-                  onSubmitted: (String isbn13) {
-                    setState(() {
-                      isbn13 = controller.text;
-                    });
-                  for (int index = 0; index < _amazonBooksData.length; index++) {
-                    if (isbn13 == _amazonBooksData[index][4].toString()) {
-                      _title = _amazonBooksData[index][0].toString();
-                      _author = _amazonBooksData[index][2].toString();
-                    }
-                  }
-                },
-                  leading: const Icon(Icons.search),
-                );
-              },
-              suggestionsBuilder: (BuildContext context,
-                  SearchController controller) {
-                return List<ListTile>.generate(_amazonBooksData.length, (int index) {
-                  String title = _amazonBooksData[index][0].toString();
-                  String author = _amazonBooksData[index][2].toString();
-                  String isbn =_amazonBooksData[index][4].toString();
-                  final String isbn13 = '$title, $author, $isbn';
-                  return ListTile(
-                    title: Text(isbn13),
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              SearchAnchor(
+                builder: (BuildContext context, SearchController controller) {
+                  return SearchBar(
+                    controller: controller,
+                    padding: const MaterialStatePropertyAll<EdgeInsets>(
+                        EdgeInsets.symmetric(horizontal: 16.0)),
                     onTap: () {
-                      setState(() {
-                        controller.closeView(isbn13);
-                      });
+                      controller.openView();
                     },
+                    onChanged: (_) {
+                      controller.openView();
+                    },
+                    leading: const Icon(Icons.search),
                   );
-                });
-              },
-            ),
-            ListTile(
-              title: Text(_title),
-              subtitle: Text(_author),
-            )
-          ],
-        )
+                },
+                suggestionsBuilder: (BuildContext context,
+                    SearchController controller) {
+                  return List<ListTile>.generate(_amazonBooksData.length, (int index) {
+                    String title =_amazonBooksData[index][0].toString();
+                    String author =_amazonBooksData[index][2].toString();
+                    String isbn =_amazonBooksData[index][4].toString();
+                    final String isbn13 = '$title, $author, $isbn';
+                    return ListTile(
+                      title: Text(isbn13),
+                      onTap: () {
+                        setState(() {
+                          controller.closeView(isbn13);
+                        });
+                      },
+                    );
+                  });
+                },
+              ),
+            ],
+          )
       ),
     );
   }
 
-  }
+}
 
 
 class AmazonBookListPage extends StatefulWidget {
@@ -157,73 +178,64 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Amazon Books List'),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(Icons.arrow_back_ios),
+        appBar: AppBar(
+          title: Text('Amazon Books Search Engine'),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios),
+          ),
         ),
-      ),
-      body: ListView.builder(
-        itemCount: _amazonBooksData.length,
-        itemBuilder: (_, index) {
-          return Card(
-            margin: const EdgeInsets.all(6),
-            color: Colors.white,
-            child: ListTile(
-              leading: Column(
-                  children: <Widget> [
-                    Text(_amazonBooksData[index][0].toString()),
-                    InkWell(
-                        child: Text('Save Book'),
-                        onTap: () {
-                          ListTile element = ListTile(
-                            leading: Column(
-                              children: <Widget> [
-                                Text(_amazonBooksData[index][0].toString()),
-                                Text('Swipe to Remove'),
-                              ],
-                            ),
-                            trailing: Text(_amazonBooksData[index][2].toString()),
-                            title: Text(_amazonBooksData[index][1]),
-                            subtitle: Text(_amazonBooksData[index][4].toString()),
-                          );
-                          if(!saved.contains(element)){
-                            saved.add(element);
+        body: ListView.builder(
+          itemCount: _amazonBooksData.length,
+          itemBuilder: (_, index) {
+            return Card(
+              margin: const EdgeInsets.all(6),
+              color: Colors.white,
+              child: ListTile(
+                leading: Column(
+                    children: <Widget> [
+                      Text(_amazonBooksData[index][0].toString()),
+                      InkWell(
+                          child: Text('Save Book'),
+                          onTap: () {
+                            ListTile element = ListTile(
+                              leading: Column(
+                                children: <Widget> [
+                                  Text(_amazonBooksData[index][0].toString()),
+                                  Text('Swipe to Remove'),
+                                ],
+                              ),
+                              trailing: Text(_amazonBooksData[index][2].toString()),
+                              title: Text(_amazonBooksData[index][1]),
+                              subtitle: Text(_amazonBooksData[index][4].toString()),
+                            );
+                            if(!saved.contains(element)){
+                              saved.add(element);
+                            }
+                            Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (context) => SavedListScreen(),
+                              ),
+                            );
                           }
-                          Navigator.push(context,
-                            MaterialPageRoute(
-                            builder: (context) => SavedListScreen(),
-                            ),
-                          );
-                        }
-                    ),
-                  ]
+                      ),
+                    ]
+                ),
+                trailing: Text(_amazonBooksData[index][2].toString()),
+                title: Text(_amazonBooksData[index][1]),
+                subtitle: Text(_amazonBooksData[index][4].toString()),
+                //May add isbn10 (index 3) here or within future card hero.
+                isThreeLine: true,
               ),
-              trailing: Text(_amazonBooksData[index][2].toString()),
-              title: Text(_amazonBooksData[index][1]),
-              subtitle: Text(_amazonBooksData[index][4].toString()),
-              itemCount: _amazonBooksData.length,
-              itemBuilder: (_, index) {
-                return Card(
-                  margin: const EdgeInsets.all(6),
-                  color: Colors.white,
-                  child: ListTile(
-                    leading: Text(_amazonBooksData[index][5].toString()),
-                    trailing: Text(_amazonBooksData[index][2].toString()),
-                    title: Text(_amazonBooksData[index][0]),
-                    subtitle: Text(_amazonBooksData[index][1].toString()),
-                    //May add isbn10 (index 3) here or within future card hero.
-              isThreeLine: true,
-            ),
-          );
+            );
           },
-      )
+        )
     );
   }
 }
@@ -259,96 +271,96 @@ class _AmazonBookReviewsPageState extends State<AmazonBookReviewsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Amazon Book Reviews'),
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(Icons.arrow_back_ios),
-          ),
+      appBar: AppBar(
+        title: Text('Amazon Book Reviews'),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back_ios),
         ),
-        body: Padding (
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-              children: [
-                SearchAnchor(
-                  builder: (BuildContext context, SearchController controller) {
-                    return SearchBar(
-                      controller: controller,
-                      padding: const MaterialStatePropertyAll<EdgeInsets>(
-                          EdgeInsets.symmetric(horizontal: 16.0)),
-                      onTap: () {
-                        controller.openView();
-                      },
-                      onChanged: (_) {
-                        controller.openView();
-                      },
-                      onSubmitted: (String title) {
-                        setState(() {
-                          title = controller.text;
-                        });
-                        for (int index = 0; index < _amazonBooksData.length; index++) {
-                          if (title == _amazonBooksData[index][0].toString()) {
-                            _title = _amazonBooksData[index][0].toString();
-                            _author = _amazonBooksData[index][2].toString();
-                          }
-                        }
-                      },
-                      leading: const Icon(Icons.search),
-                    );
+      ),
+      body: Padding (
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SearchAnchor(
+              builder: (BuildContext context, SearchController controller) {
+                return SearchBar(
+                  controller: controller,
+                  padding: const MaterialStatePropertyAll<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 16.0)),
+                  onTap: () {
+                    controller.openView();
                   },
-                  suggestionsBuilder: (BuildContext context,
-                      SearchController controller) {
-                    return List<ListTile>.generate(_amazonBooksData.length, (int index) {
-                      String title = _amazonBooksData[index][0].toString();
-                      final String isbn13 = '$title';
-                      return ListTile(
-                        title: Text(isbn13),
-                        onTap: () {
-                          setState(() {
-                            controller.closeView(isbn13);
-                          });
-                        },
-                      );
+                  onChanged: (_) {
+                    controller.openView();
+                  },
+                  onSubmitted: (String title) {
+                    setState(() {
+                      title = controller.text;
                     });
+                    for (int index = 0; index < _amazonBooksData.length; index++) {
+                      if (title == _amazonBooksData[index][0].toString()) {
+                        _title = _amazonBooksData[index][0].toString();
+                        _author = _amazonBooksData[index][2].toString();
+                      }
+                    }
                   },
-                ),
-                SizedBox(
-                  height: 100,
-                    child: Card(
-                      margin: const EdgeInsets.all(6),
-                      color: Colors.white,
-                      child: ListTile(
-                        leading: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return AmazonGiveReviewScreen();
-                              },
-                            ));
+                  leading: const Icon(Icons.search),
+                );
+              },
+              suggestionsBuilder: (BuildContext context,
+                  SearchController controller) {
+                return List<ListTile>.generate(_amazonBooksData.length, (int index) {
+                  String title = _amazonBooksData[index][0].toString();
+                  final String isbn13 = '$title';
+                  return ListTile(
+                    title: Text(isbn13),
+                    onTap: () {
+                      setState(() {
+                        controller.closeView(isbn13);
+                      });
+                    },
+                  );
+                });
+              },
+            ),
+            SizedBox(
+                height: 100,
+                child: Card(
+                  margin: const EdgeInsets.all(6),
+                  color: Colors.white,
+                  child: ListTile(
+                    leading: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return AmazonGiveReviewScreen();
                           },
-                          child: const Icon(Icons.draw_outlined),
-                        ),
-                        trailing:  GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return AmazonGiveReviewScreen();
-                              },
-                            ));
+                        ));
+                      },
+                      child: const Icon(Icons.draw_outlined),
+                    ),
+                    trailing:  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return AmazonGiveReviewScreen();
                           },
-                          child: const Icon(Icons.reviews),
-                        ),
-                        title: Text(_title),
-                        subtitle: Text(_author),
-                      ),
-                    )
+                        ));
+                      },
+                      child: const Icon(Icons.reviews),
+                    ),
+                    title: Text(_title),
+                    subtitle: Text(_author),
+                  ),
                 )
-              ],
-          ),
-          ),
-        );
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -463,19 +475,19 @@ class _AmazonGiveReviewPageState extends State<AmazonGiveReviewPage> {
 
     return Scaffold(
         appBar: AppBar(
-        title: Text('Write Your Review Here!'),
+          title: Text('Write Your Review Here!'),
           leading: GestureDetector(
-           onTap: () {
+            onTap: () {
               Navigator.pop(context);
             },
             child: const Icon(Icons.arrow_back_ios),
           ),
         ),
-      body: Container(child: ListView(
-        children: <Widget>[
-          _bookRatingView
-        ],
-      ),)
+        body: Container(child: ListView(
+          children: <Widget>[
+            _bookRatingView
+          ],
+        ),)
     );
   }
 }

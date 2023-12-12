@@ -106,7 +106,7 @@ class _AlarmPageState extends State<AlarmPage> {
 
 fireAlarm(player) {
  print("PLAY AUDIO PLAY AUDIO");
-
+ player.play(AssetSource('AlarmNoise.mp3'));
 }
 
 extension TimeOfDayExtension on TimeOfDay {

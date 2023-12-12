@@ -9,9 +9,9 @@ class SavedListPage extends StatefulWidget {
   SavedListPage(this.presenter, {required Key? key, required this.title}) : super(key: key);
   final String title;
   @override
-  _BookListPageState createState() => _BookListPageState();
+  _SavedListPageState createState() => _SavedListPageState();
 }
-class _BookListPageState extends State<SavedListPage> {
+class _SavedListPageState extends State<SavedListPage> {
 
   void initState(){
     super.initState();
@@ -21,36 +21,52 @@ class _BookListPageState extends State<SavedListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Saved Books'),
-      ),
+        appBar: AppBar(
+          title: Text('Saved Books'),
+          actions: [
+            PopupMenuButton(
+                itemBuilder: (context){
+                  return [
+                    PopupMenuItem<int>(
+                        value: 0,
+                        child: Text('Sort by Price')
+                    ),
+                    PopupMenuItem<int>(
+                        value: 0,
+                        child: Text('Sort by Rating')
+                    ),
+                  ];
+                }
+            )
+          ],
+        ),
 
-      body: ListView.builder(
-        itemCount: saved.length,
-        itemBuilder: (BuildContext context, int index){
-          final item = saved[index];
-          return Dismissible(
-              key: UniqueKey(),
-              onDismissed: (direction) {
-                // Remove the item from the data source.
-                setState(() {
-                  saved.removeAt(index);
-                });
-                ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text('Book has been removed')));
-              },
-            // Show a red background as the item is swiped away.
-            background: Container(color: Colors.red),
-              child: ListTile(
-                leading: item.leading,
-                trailing: item.trailing,
-                title: item.title,
-                subtitle: item.subtitle,
-                isThreeLine: true,
-              )
-          );
-        },
-      )
+        body: ListView.builder(
+          itemCount: saved.length,
+          itemBuilder: (BuildContext context, int index){
+            final item = saved[index];
+            return Dismissible(
+                key: UniqueKey(),
+                onDismissed: (direction) {
+                  // Remove the item from the data source.
+                  setState(() {
+                    saved.removeAt(index);
+                  });
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text('Book has been removed')));
+                },
+                // Show a red background as the item is swiped away.
+                background: Container(color: Colors.red),
+                child: ListTile(
+                  leading: item.leading,
+                  trailing: item.trailing,
+                  title: item.title,
+                  subtitle: item.subtitle,
+                  isThreeLine: true,
+                )
+            );
+          },
+        )
     );
   }
 }
