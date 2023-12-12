@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Misc Unversioned Files">
+    <list default="true" id="6f698814-e406-48ad-9c03-4a9013b1d7b5" name="Changes" comment="Changed UI and app color scheme.">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/amazon/views/amazon_component.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/cs3541_final_project/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702346638131</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changed UI and app color scheme.">
+      <created>1702409278876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702409278876</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +141,7 @@
     <MESSAGE value="Implemented search ability through isbn13 value." />
     <MESSAGE value="Finished implementing and designing Amazon Book Reviews page" />
     <MESSAGE value="Misc Unversioned Files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Misc Unversioned Files" />
+    <MESSAGE value="Changed UI and app color scheme." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed UI and app color scheme." />
   </component>
 </project>
