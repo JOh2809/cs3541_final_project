@@ -201,7 +201,7 @@ class _AmazonBookListPageState extends State<AmazonBookListPage> {
                     children: <Widget> [
                       Text(_amazonBooksData[index][0].toString()),
                       InkWell(
-                          child: Text('Save Book'),
+                          child: Text('Save Book', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),),
                           onTap: () {
                             ListTile element = ListTile(
                               leading: Column(
